@@ -3,16 +3,22 @@
     <div id="nav">
       <NavBar />
     </div>
+    <Introduction />
+    <Technologies />
     <router-view />
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
+import Introduction from '@/components/Introduction.vue'
+import Technologies from '@/components/Technologies.vue'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    Introduction,
+    Technologies
   }
 }
 </script>

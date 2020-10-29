@@ -6,8 +6,8 @@
       </button>
       {{ this.dropDownShow }}
       <div v-show="dropDownShow" class="dropdown-content">
-        <a href="#">Introduction</a>
-        <a href="#">Skills</a>
+        <a href="#introduction" v-smooth-scroll>Introduction</a>
+        <a href="#technologies" v-smooth-scroll>Skills</a>
         <a href="#">Tool and Technologies</a>
         <a href="#">Projects</a>
         <a href="#">Contact</a>
@@ -34,11 +34,11 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   overflow: hidden;
-
-  background-image: linear-gradient(
-    rgba(0, 69, 122, 0.8),
-    rgba(0, 69, 122, 0.1)
-  );
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6vh;
+  background-image: linear-gradient(rgba(0, 49, 87, 0.8), rgba(0, 49, 87, 0.1));
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -62,14 +62,14 @@ export default {
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 20px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
 }
 
 .dropdown-content {
-  position: absolute;
+  position: fixed;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
