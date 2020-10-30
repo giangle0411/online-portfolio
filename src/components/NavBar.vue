@@ -1,16 +1,24 @@
 <template>
   <div class="navbar">
-    <div class="dropdown">
-      <button class="dropbtn" @click="this.onDropDownClick">
-        Dropdown
-      </button>
-      {{ this.dropDownShow }}
-      <div v-show="dropDownShow" class="dropdown-content">
-        <a href="#introduction" v-smooth-scroll>Introduction</a>
-        <a href="#technologies" v-smooth-scroll>Skills</a>
-        <a href="#">Tool and Technologies</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
+    <div class="dropdown-wrapper">
+      <div class="dropdown" v-click-outside="closeDropDown">
+        <button class="dropbtn" @click="this.onDropDownClick">
+          Dropdown
+        </button>
+        {{ this.navShow }}
+        <div
+          class="dropdown-content"
+          @click="this.onDropDownClick"
+          v-if="dropDownShow"
+          style="display: `${this.navShow}`"
+        >
+          <a href="#introduction" v-smooth-scroll="{ updateHistory: false }"
+            >Introduction</a
+          >
+          <a href="#skills" v-smooth-scroll>Skills</a>
+          <a href="#">Projects</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
     </div>
   </div>
@@ -20,12 +28,22 @@
 export default {
   data() {
     return {
-      dropDownShow: false
+      dropDownShow: false,
+      navShow: 'none'
     }
   },
   methods: {
     onDropDownClick() {
       this.dropDownShow = !this.dropDownShow
+      if (this.navShow === 'none') {
+        this.navShow = 'block'
+      } else {
+        this.navShow = 'none'
+      }
+    },
+    closeDropDown() {
+      this.dropDownShow = false
+      this.navShow = 'none'
     }
   }
 }
@@ -37,7 +55,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 6vh;
+  height: 50px;
   background-image: linear-gradient(rgba(0, 49, 87, 0.8), rgba(0, 49, 87, 0.1));
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -54,26 +72,31 @@ export default {
 .dropdown {
   float: left;
   overflow: hidden;
+  min-width: 160px;
+  z-index: 100;
 }
 
 .dropdown .dropbtn {
+  position: relative;
   cursor: pointer;
   font-size: 16px;
   border: none;
   outline: none;
   color: white;
-  padding: 20px 16px;
+  padding: 16px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  z-index: 150;
 }
 
 .dropdown-content {
   position: fixed;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  top: 0px;
+  padding-top: 50px;
+  min-width: 300px;
+  background-color: rgba(0, 49, 87, 0.5);
+  transition-duration: 0.5s;
 }
 
 .dropdown-content a {
@@ -86,7 +109,7 @@ export default {
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: rgba(0, 49, 87, 0.1);
 }
 
 .show {

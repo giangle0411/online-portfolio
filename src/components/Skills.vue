@@ -1,6 +1,6 @@
 <template>
-  <div class="technologies-container" id="technologies">
-    <div class="technologies"></div>
+  <div class="skills-container" id="skills">
+    <div class="skills"></div>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.technologies {
+.skills {
   height: 100vh;
   background-color: orange;
 }

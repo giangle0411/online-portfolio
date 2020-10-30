@@ -4,7 +4,7 @@
       <NavBar />
     </div>
     <Introduction />
-    <Technologies />
+    <Skills />
     <router-view />
   </div>
 </template>
@@ -12,13 +12,13 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import Introduction from '@/components/Introduction.vue'
-import Technologies from '@/components/Technologies.vue'
+import Skills from '@/components/Skills.vue'
 
 export default {
   components: {
     NavBar,
     Introduction,
-    Technologies
+    Skills
   }
 }
 </script>
