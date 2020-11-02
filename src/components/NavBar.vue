@@ -1,24 +1,35 @@
 <template>
-  <div class="navbar">
+  <div class="navbar nav-container">
     <div class="dropdown-wrapper">
       <div class="dropdown" v-click-outside="closeDropDown">
         <button class="dropbtn" @click="this.onDropDownClick">
           Dropdown
         </button>
-        {{ this.navShow }}
-        <div
-          class="dropdown-content"
-          @click="this.onDropDownClick"
-          v-if="dropDownShow"
-          style="display: `${this.navShow}`"
-        >
-          <a href="#introduction" v-smooth-scroll="{ updateHistory: false }"
-            >Introduction</a
+        <transition name="slide-fade">
+          <div
+            class="dropdown-content"
+            @click="this.onDropDownClick"
+            v-if="dropDownShow"
           >
-          <a href="#skills" v-smooth-scroll>Skills</a>
-          <a href="#">Projects</a>
-          <a href="#">Contact</a>
-        </div>
+            <a href="#introduction" v-smooth-scroll="{ updateHistory: false }"
+              >Introduction</a
+            >
+            <a href="#skills" v-smooth-scroll="{ updateHistory: false }"
+              >Skills</a
+            >
+            <a href="#projects" v-smooth-scroll="{ updateHistory: false }"
+              >Projects</a
+            >
+            <a href="#contact" v-smooth-scroll="{ updateHistory: false }"
+              >Contact</a
+            >
+          </div>
+        </transition>
+      </div>
+    </div>
+    <div class="right-icons">
+      <div class="github-icon">
+        Hello
       </div>
     </div>
   </div>
@@ -28,22 +39,15 @@
 export default {
   data() {
     return {
-      dropDownShow: false,
-      navShow: 'none'
+      dropDownShow: false
     }
   },
   methods: {
     onDropDownClick() {
       this.dropDownShow = !this.dropDownShow
-      if (this.navShow === 'none') {
-        this.navShow = 'block'
-      } else {
-        this.navShow = 'none'
-      }
     },
     closeDropDown() {
       this.dropDownShow = false
-      this.navShow = 'none'
     }
   }
 }
@@ -51,57 +55,49 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  overflow: hidden;
   position: fixed;
-  top: 0;
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-image: linear-gradient(rgba(0, 49, 87, 0.8), rgba(0, 49, 87, 0.1));
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
 .dropdown {
+  padding-left: 150px;
   float: left;
   overflow: hidden;
   min-width: 160px;
+  height: 70px;
   z-index: 100;
 }
 
 .dropdown .dropbtn {
   position: relative;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   outline: none;
   color: white;
-  padding: 16px 16px;
+  padding: 24px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  float: left;
   z-index: 150;
 }
 
 .dropdown-content {
+  transition: opacity 1s ease-out;
   position: fixed;
   top: 0px;
-  padding-top: 50px;
+  padding-top: 70px;
   min-width: 300px;
   background-color: rgba(0, 49, 87, 0.5);
-  transition-duration: 0.5s;
 }
 
 .dropdown-content a {
   float: none;
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -112,7 +108,27 @@ export default {
   background-color: rgba(0, 49, 87, 0.1);
 }
 
-.show {
-  display: block;
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+.right-icons {
+  float: right;
+  padding-right: 150px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.right-icons .github-icon {
+  display: inline-block;
+  float: none;
 }
 </style>

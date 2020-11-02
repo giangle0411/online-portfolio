@@ -1,10 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <div id="nav">
       <NavBar />
     </div>
     <Introduction />
     <Skills />
+    <Projects />
+    <Contact />
     <router-view />
   </div>
 </template>
@@ -13,12 +15,16 @@
 import NavBar from '@/components/NavBar.vue'
 import Introduction from '@/components/Introduction.vue'
 import Skills from '@/components/Skills.vue'
+import Projects from '@/components/Projects.vue'
+import Contact from '@/components/Contact.vue'
 
 export default {
   components: {
     NavBar,
     Introduction,
-    Skills
+    Skills,
+    Projects,
+    Contact
   }
 }
 </script>
