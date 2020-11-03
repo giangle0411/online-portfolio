@@ -2,35 +2,49 @@
   <div class="navbar nav-container">
     <div class="dropdown-wrapper">
       <div class="dropdown" v-click-outside="closeDropDown">
-        <button class="dropbtn" @click="this.onDropDownClick">
-          Dropdown
-        </button>
+        <div class="dropbtn" @click="this.onDropDownClick">
+          <i class="fas fa-bars fa-2x"></i>
+        </div>
         <transition name="slide-fade">
           <div
             class="dropdown-content"
             @click="this.onDropDownClick"
             v-if="dropDownShow"
           >
-            <a href="#introduction" v-smooth-scroll="{ updateHistory: false }"
-              >Introduction</a
-            >
-            <a href="#skills" v-smooth-scroll="{ updateHistory: false }"
-              >Skills</a
-            >
-            <a href="#projects" v-smooth-scroll="{ updateHistory: false }"
-              >Projects</a
-            >
-            <a href="#contact" v-smooth-scroll="{ updateHistory: false }"
-              >Contact</a
-            >
+            <a href="#introduction" v-smooth-scroll="{ updateHistory: false }">
+              <i class="far fa-id-card"></i>
+              <div class="dropdown-item">Introduction</div>
+            </a>
+            <a href="#skills" v-smooth-scroll="{ updateHistory: false }">
+              <i class="fas fa-glasses"></i>
+              <div class="dropdown-item">Skills</div>
+            </a>
+            <a href="#projects" v-smooth-scroll="{ updateHistory: false }">
+              <i class="fas fa-laptop-code"></i>
+              <div class="dropdown-item">Projects</div>
+            </a>
+            <a href="#contact" v-smooth-scroll="{ updateHistory: false }">
+              <i class="fas fa-paper-plane"></i>
+              <div class="dropdown-item">Contact</div>
+            </a>
           </div>
         </transition>
       </div>
     </div>
+
     <div class="right-icons">
-      <div class="github-icon">
-        Hello
-      </div>
+      <a href="mailto:giangle0411@gmail.com" class="email-icon nav-icon">
+        <i class="far fa-envelope fa-3x"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/giangle0411/"
+        class="linkedin-icon nav-icon"
+      >
+        <i class="fab fa-linkedin fa-3x"></i>
+      </a>
+      <a href="https://github.com/giangle0411" class="github-icon nav-icon">
+        <i class="fab fa-github fa-3x"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -63,27 +77,30 @@ export default {
 }
 
 .dropdown {
-  padding-left: 150px;
   float: left;
   overflow: hidden;
-  min-width: 160px;
-  height: 70px;
+  min-width: 300px;
+  height: 100%;
   z-index: 100;
 }
 
 .dropdown .dropbtn {
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 21px;
   border: none;
   outline: none;
-  color: white;
-  padding: 24px 16px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 14px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
   float: left;
   z-index: 150;
+}
+
+.dropdown .dropbtn:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
 .dropdown-content {
@@ -97,7 +114,7 @@ export default {
 
 .dropdown-content a {
   float: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -106,6 +123,12 @@ export default {
 
 .dropdown-content a:hover {
   background-color: rgba(0, 49, 87, 0.1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.dropdown-item {
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .slide-fade-enter-active {
@@ -122,13 +145,24 @@ export default {
 
 .right-icons {
   float: right;
-  padding-right: 150px;
-  height: 50px;
-  vertical-align: middle;
+  height: 100%;
+  position: relative;
+
+  font-size: 14px;
+  margin: 14px 0px;
+  padding-left: 20px;
 }
 
-.right-icons .github-icon {
+.right-icons a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.right-icons a:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.nav-icon {
   display: inline-block;
-  float: none;
+  margin-left: 20px;
 }
 </style>
