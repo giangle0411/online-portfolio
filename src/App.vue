@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <div id="nav">
       <NavBar />
     </div>
@@ -36,5 +36,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 49, 87, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
 }
 </style>

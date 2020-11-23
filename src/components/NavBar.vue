@@ -1,50 +1,55 @@
 <template>
   <div class="navbar nav-container">
-    <div class="dropdown-wrapper">
-      <div class="dropdown" v-click-outside="closeDropDown">
-        <div class="dropbtn" @click="this.onDropDownClick">
-          <i class="fas fa-bars fa-2x"></i>
-        </div>
-        <transition name="slide-fade">
-          <div
-            class="dropdown-content"
-            @click="this.onDropDownClick"
-            v-if="dropDownShow"
-          >
-            <a href="#introduction" v-smooth-scroll="{ updateHistory: false }">
-              <i class="far fa-id-card"></i>
-              <div class="dropdown-item">Introduction</div>
-            </a>
-            <a href="#skills" v-smooth-scroll="{ updateHistory: false }">
-              <i class="fas fa-glasses"></i>
-              <div class="dropdown-item">Skills</div>
-            </a>
-            <a href="#projects" v-smooth-scroll="{ updateHistory: false }">
-              <i class="fas fa-laptop-code"></i>
-              <div class="dropdown-item">Projects</div>
-            </a>
-            <a href="#contact" v-smooth-scroll="{ updateHistory: false }">
-              <i class="fas fa-paper-plane"></i>
-              <div class="dropdown-item">Contact</div>
-            </a>
+    <div class="navbar-content container">
+      <div class="dropdown-wrapper">
+        <div class="dropdown" v-click-outside="closeDropDown">
+          <div class="dropbtn" @click="this.onDropDownClick">
+            <i class="fas fa-bars fa-2x"></i>
           </div>
-        </transition>
+          <transition name="slide-fade">
+            <div
+              class="dropdown-content"
+              @click="this.onDropDownClick"
+              v-if="dropDownShow"
+            >
+              <a
+                href="#introduction"
+                v-smooth-scroll="{ updateHistory: false }"
+              >
+                <i class="far fa-id-card"></i>
+                <div class="dropdown-item">Introduction</div>
+              </a>
+              <a href="#skills" v-smooth-scroll="{ updateHistory: false }">
+                <i class="fas fa-glasses"></i>
+                <div class="dropdown-item">Skills</div>
+              </a>
+              <a href="#projects" v-smooth-scroll="{ updateHistory: false }">
+                <i class="fas fa-laptop-code"></i>
+                <div class="dropdown-item">Projects</div>
+              </a>
+              <a href="#contact" v-smooth-scroll="{ updateHistory: false }">
+                <i class="fas fa-paper-plane"></i>
+                <div class="dropdown-item">Contact</div>
+              </a>
+            </div>
+          </transition>
+        </div>
       </div>
-    </div>
 
-    <div class="right-icons">
-      <a href="mailto:giangle0411@gmail.com" class="email-icon nav-icon">
-        <i class="far fa-envelope fa-3x"></i>
-      </a>
-      <a
-        href="https://www.linkedin.com/in/giangle0411/"
-        class="linkedin-icon nav-icon"
-      >
-        <i class="fab fa-linkedin fa-3x"></i>
-      </a>
-      <a href="https://github.com/giangle0411" class="github-icon nav-icon">
-        <i class="fab fa-github fa-3x"></i>
-      </a>
+      <div class="right-icons">
+        <a href="mailto:giangle0411@gmail.com" class="email-icon nav-icon">
+          <i class="far fa-envelope fa-3x"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/giangle0411/"
+          class="linkedin-icon nav-icon"
+        >
+          <i class="fab fa-linkedin fa-3x"></i>
+        </a>
+        <a href="https://github.com/giangle0411" class="github-icon nav-icon">
+          <i class="fab fa-github fa-3x"></i>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -76,10 +81,32 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+  padding: 0;
+}
+
+@media (min-width: 1264px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 960px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
-  min-width: 300px;
+  min-width: 280px;
   height: 100%;
   z-index: 100;
 }
@@ -108,7 +135,7 @@ export default {
   position: fixed;
   top: 0px;
   padding-top: 70px;
-  min-width: 300px;
+  min-width: 280px;
   background-color: rgba(0, 49, 87, 0.5);
 }
 
@@ -147,7 +174,6 @@ export default {
   float: right;
   height: 100%;
   position: relative;
-
   font-size: 14px;
   margin: 14px 0px;
   padding-left: 20px;

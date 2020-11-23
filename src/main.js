@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vueSmoothScroll from 'vue2-smooth-scroll'
+import '@fortawesome/fontawesome-free/js/all.js'
+import vuetify from './plugins/vuetify'
 
 Vue.use(vueSmoothScroll)
 
@@ -41,5 +43,6 @@ Vue.directive('click-outside', {
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
